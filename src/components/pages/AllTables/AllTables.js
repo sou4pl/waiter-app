@@ -11,7 +11,9 @@ const AllTables = () => {
     <section>
       <h2>Browse tables</h2>
       {tables.map(table => (
-        <Link key={table.id} to={'table/' + table.id}>TABLE {table.id} </Link>
+        <div>
+          <Link key={table.id} to={'table/' + table.id}>TABLE {table.id} </Link>
+        </div>
       ))}
     </section>
   );
