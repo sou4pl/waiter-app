@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+
 const Table = () => {
 
   const { tableId } = useParams();

@@ -1,4 +1,3 @@
-//import styles from './Lists.module.scss';
 //import { useSelector } from 'react-redux';
 //import { getAllLists } from '../../redux/listsRedux';
 import { Link } from 'react-router-dom';
