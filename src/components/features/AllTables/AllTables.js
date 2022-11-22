@@ -1,21 +1,21 @@
 import { useSelector } from 'react-redux';
 import { getAllTables } from '../../../redux/tablesRedux';
 import { Link } from 'react-router-dom'; 
-import { shallowEqual } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
 
 const AllTables = () => {
 
-  const tables = useSelector(state => getAllTables(state), shallowEqual); 
+  const tables = useSelector(getAllTables);  
+  console.log(tables)
 
-  if (tables.length === 0) return (<p>LOADING</p>)
+  if (tables.length === 0) return (<p>LOADING</p>) 
 
   return (
     <section>
       <h1>Browse tables</h1>
       <ListGroup variant="flush">
         {tables.map(table => (
-          <ListGroup.Item className="d-flex p-3 justify-content-between" key={table.id}>
+          <ListGroup.Item className="d-flex p-3 justify-content-between my-auto" key={table.id}>
             <div className="d-flex align-items-center my-auto">
               <h2 className="my-auto">Table {table.id}</h2> 
               <h6 className="d-flex align-items-center my-auto p-3">Status: {table.status}</h6>
