@@ -8,7 +8,7 @@ const AllTables = () => {
   const tables = useSelector(getAllTables);  
   console.log(tables)
 
-  if (tables.length === 0) return (<p>LOADING</p>) 
+  if (tables.length === 0) return (<p>LOADING! </p>) 
 
   return (
     <section>
