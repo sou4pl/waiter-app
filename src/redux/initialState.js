@@ -3,7 +3,7 @@ const initialState = {
     
   ],
 
-  statuses: ['Free', 'Busy', 'Cleaning', 'Reserved'],
+  statusOptions: ['Free', 'Busy', 'Cleaning', 'Reserved'],
 };
 
 export default initialState;
