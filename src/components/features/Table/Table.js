@@ -22,28 +22,30 @@ const Table = () => {
   const [billValue, setBillValue] = useState(tableData.billValue);
   
   if (peopleAmount > 10){setPeopleAmount(10)};
-  if (maxPeopleAmount > 10){setMaxPeopleAmount(10)}
-  if (peopleAmount > maxPeopleAmount){setPeopleAmount(maxPeopleAmount)}
+  if (maxPeopleAmount > 10){setMaxPeopleAmount(10)};
+  if (peopleAmount > maxPeopleAmount){setPeopleAmount(maxPeopleAmount)};
+  if (peopleAmount < 0){setPeopleAmount(0)};
+  if (maxPeopleAmount <0){setMaxPeopleAmount(0)};
   
   const setTableConditionsWithStatus = (e) => {
-    if (e === "Busy"){
-      setBillValue(0);}
     if (e === "Cleaning" || e === "Free") {
       setPeopleAmount(0);
     }
+      setBillValue(0)
       setStatus(e);
     }
 
-  const handleSubmit = e => {
-    const updatedTableData = {};
-    updatedTableData.id = tableId;
-    updatedTableData.status = status;
-    updatedTableData.peopleAmount = peopleAmount;
-    updatedTableData.maxPeopleAmount = maxPeopleAmount;
-    updatedTableData.billValue = billValue;
+  const handleUpdate = e => {
     e.preventDefault();
-    console.log(updatedTableData);
-    //dispatch(updateTableData(tableId, tableData));
+    const id = tableId;
+    const updatedTableData = { id, status, peopleAmount, maxPeopleAmount, billValue };
+    //updatedTableData.id = tableId;
+    //updatedTableData.status = status;
+    //updatedTableData.peopleAmount = peopleAmount;
+    //updatedTableData.maxPeopleAmount = maxPeopleAmount;
+    //updatedTableData.billValue = billValue;
+    
+    dispatch(updateTableData(updatedTableData, id));
   }
     
 
@@ -70,14 +72,14 @@ const Table = () => {
             type="number" 
             value={peopleAmount} 
             className={styles.input} 
-            onChange={e => setPeopleAmount(e.target.value)}
+            onChange={e => setPeopleAmount(parseInt(e.target.value))}
           />
           <span className="px-2">/</span>
           <Form.Control 
             type="number" 
             value={maxPeopleAmount} 
             className={styles.input} 
-            onChange={e => setMaxPeopleAmount(e.target.value)}
+            onChange={e => setMaxPeopleAmount(parseInt(e.target.value))}
           />
         </Form.Group>
           {status === "Busy" ? (
@@ -88,13 +90,13 @@ const Table = () => {
               type="number" 
               value={billValue} 
               className={styles.input} 
-              onChange={e => setBillValue(e.target.value)} 
+              onChange={e => setBillValue(parseInt(e.target.value))} 
             />
             </Form.Group>
           </div>
           ) : null}
       </Form>
-      <Button className="mt-2" onClick={e =>{handleSubmit(e)}}>Update</Button>
+      <Button className="mt-2" type="submit" onClick={e =>{handleUpdate(e)}}>Update</Button>
       </Col>
     </Container>
     </div>
