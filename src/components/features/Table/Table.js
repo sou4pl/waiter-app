@@ -14,18 +14,18 @@ const Table = () => {
 
   const tableData = useSelector(state => getTableById(state, {tableId}));
   const statuses = useSelector(getAllStatuses);
-  //console.log(statuses)
-  //console.log(tableData)
 
-  const [status, setStatus] = useState('');
-  const [peopleAmount, setPeopleAmount] = useState('');
-  const [maxPeopleAmount, setMaxPeopleAmount] = useState('');
-  const [billValue, setBillValue] = useState('');
 
-  //if(!tableData) {
-  //  return (
-  //    <Navigate to="/" />
-  //  )
+  const [status, setStatus] = useState(tableData.status);
+  const [peopleAmount, setPeopleAmount] = useState(tableData.peopleAmount);
+  const [maxPeopleAmount, setMaxPeopleAmount] = useState(tableData.maxPeopleAmount);
+  const [billValue, setBillValue] = useState(tableData.billValue);
+
+
+  
+  if (peopleAmount > 10){setPeopleAmount(10)};
+  if (maxPeopleAmount > 10){setMaxPeopleAmount(10)}
+  if (peopleAmount > maxPeopleAmount){setPeopleAmount(maxPeopleAmount)}
   
 
   return (

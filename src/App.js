@@ -1,5 +1,5 @@
 import Home from './components/pages/Home/Home';
-import Table from './components/features/Table/Table';
+import TablePage from './components/pages/TablePage/TablePage';
 import Error404 from './components/pages/Error404/Error404';
 import Footer from './components/views/Footer/Footer';
 import Header from './components/views/Header/Header';
@@ -23,7 +23,7 @@ function App() {
     <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/table/:tableId" element={<Table />} />
+        <Route path="/table/:tableId" element={<TablePage />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     <Footer />
