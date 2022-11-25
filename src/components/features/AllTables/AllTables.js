@@ -19,13 +19,16 @@ const AllTables = () => {
       <ListGroup variant="flush">
         {tables.map(table => (
           <ListGroup.Item className="d-flex p-3 justify-content-between my-auto" key={table.id}>
-            <div className="d-flex align-items-center my-auto">
-              <h2 className="my-auto">Table {table.id}</h2> 
-              <h6 className="d-flex align-items-center my-auto p-3">Status: {table.status}</h6>
+            <div className="d-flex align-items-center my-auto ">
+              <h4 className="my-auto p-2">Table {table.id}</h4> 
+              <div className="d-flex flex-column flex-sm-row px-2">
+                <h6 className="d-flex align-items-center my-auto px-1">Status:</h6>
+                <h6 className="d-flex align-items-center my-auto px-1">{table.status}</h6>
+              </div>
             </div>
             <Link className="btn btn-primary d-flex align-items-center" to={'table/' + table.id}>Show more</Link>
           </ListGroup.Item>))
-        };
+        }
         </ListGroup> 
     </section>
   );
