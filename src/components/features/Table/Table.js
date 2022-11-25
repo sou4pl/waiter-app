@@ -39,11 +39,6 @@ const Table = () => {
     e.preventDefault();
     const id = tableId;
     const updatedTableData = { id, status, peopleAmount, maxPeopleAmount, billValue };
-    //updatedTableData.id = tableId;
-    //updatedTableData.status = status;
-    //updatedTableData.peopleAmount = peopleAmount;
-    //updatedTableData.maxPeopleAmount = maxPeopleAmount;
-    //updatedTableData.billValue = billValue;
     
     dispatch(updateTableData(updatedTableData, id));
   }

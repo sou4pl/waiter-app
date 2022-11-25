@@ -1,3 +1,5 @@
+import { API_URL } from "../config";
+
 //selectors
 export const getAllTables = state => state.tables
 export const getTableById = ({tables}, {tableId}) => tables.find(table => table.id === tableId);
@@ -13,7 +15,7 @@ export const localUpdateTableData = payload => ({type: LOCAL_UPDATE_TABLE_DATA, 
 
 export const fetchTables = () => {
   return (dispatch) => { 
-    fetch('http://localhost:3131/tables')
+    fetch(API_URL + '/tables')
       .then (res => res.json())
       .then (tables => dispatch(updateTables(tables)))
   };
@@ -29,8 +31,8 @@ export const updateTableData = (updatedTableData, id) => {
       body: JSON.stringify({...updatedTableData}),
     };
     
-    fetch('http://localhost:3131/tables/' + id, options)
-    dispatch(localUpdateTableData(updatedTableData))
+    fetch(API_URL + '/tables/' + id, options)
+      .then(() => dispatch(localUpdateTableData(updatedTableData)))
   }
 }
 
