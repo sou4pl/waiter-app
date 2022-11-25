@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { getTableById, updateTableData } from "../../../redux/tablesRedux";
 import { Container, Form, Col, Button } from "react-bootstrap";
 import { getAllStatusOptions } from "../../../redux/statusOptionsRedux";
@@ -41,6 +41,7 @@ const Table = () => {
     const updatedTableData = { id, status, peopleAmount, maxPeopleAmount, billValue };
     
     dispatch(updateTableData(updatedTableData, id));
+    <Navigate to="/" />
   }
     
 
