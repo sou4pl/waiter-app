@@ -41,7 +41,7 @@ const Table = () => {
     const id = tableId;
     const updatedTableData = { id, status, peopleAmount, maxPeopleAmount, billValue };
     dispatch(updateTableData(updatedTableData, id));
-    navigate('');
+    navigate('/');
   }
     
 
